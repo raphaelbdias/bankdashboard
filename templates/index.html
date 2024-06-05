@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Customer Analysis Dashboard</h1>
+    <h2>Summary Statistics</h2>
+    {{ summary_statistics | safe }}
+    <h2>Exit Analysis</h2>
+    {{ exit_analysis | safe }}
+{% endblock %}

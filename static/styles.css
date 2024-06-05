@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'MavenPro';
+    src: url(fonts/MavenPro-Regular.ttf),
+         url(fonts/MavenPro-Bold.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'MavenPro', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width:15vw;
+    background-color: #0F161B;
+    height: 100vh;
+    padding: 20px;
+    font-size: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+.sidebar .header {
+    text-align: center;
+    color: #ecf0f1;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #34495e;
+    color: #ffffff;
+}
+
+.sidebar .logout {
+    margin-top: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.sidebar .logout a {
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #ecf0f1;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar .logout a:hover {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+}
+
+.main-container {
+    margin-left: 17vw;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 200px);
+    height: 100vh;
+}
+
+.content {
+    padding: 20px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    overflow-y: auto;
+}
