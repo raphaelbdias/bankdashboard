@@ -9,11 +9,21 @@
 </head>
 <body>
     <nav class="sidebar">
+
+        <div class="header">
+            <h1>Test</h1>
+        </div>
+
         <ul>
-            <li><a href="/">Dashboard</a></li>
-            <li><a href="/statistics">Statistics</a></li>
-            <li><a href="/analysis">Analysis</a></li>
+            <li><a href="/" class="{% if active_tab == 'dashboard' %}active{% endif %}">Dashboard</a></li>
+            <li><a href="/statistics" class="{% if active_tab == 'statistics' %}active{% endif %}">Statistics</a></li>
+            <li><a href="/analysis" class="{% if active_tab == 'analysis' %}active{% endif %}">Analysis</a></li>
         </ul>
+
+        <div class="logout">
+            Log out
+        </div>
+
     </nav>
     <div class="main-container">
         <main class="content">

@@ -1,7 +1,9 @@
 @font-face {
     font-family: 'MavenPro';
     src: url(fonts/MavenPro-Regular.ttf),
-         url(fonts/MavenPro-Bold.ttf);
+         url(fonts/MavenPro-Bold.ttf),
+         url(fonts/MavenPro-SemiBold.ttf),
+         url(fonts/MavenPro-Medium.ttf);
     font-weight: normal;
     font-style: normal;
 }
@@ -31,8 +33,8 @@ body {
 .sidebar .header {
     text-align: center;
     color: #ecf0f1;
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    font-size: 20px;
+    margin-bottom: 2vh;
 }
 
 .sidebar ul {
@@ -46,7 +48,7 @@ body {
 }
 
 .sidebar ul li a {
-    color: #ecf0f1;
+    color: gray;
     text-decoration: none;
     display: block;
     padding: 10px;
@@ -54,15 +56,16 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-.sidebar ul li a:hover {
-    background-color: #34495e;
-    color: #ffffff;
+.sidebar ul li a:hover, .sidebar ul li a.active {
+    color:#D8FFD4 ;
 }
 
 .sidebar .logout {
     margin-top: auto;
     padding: 10px;
     text-align: center;
+    font-size: 2vh;
+    color: #ecf0f1;
 }
 
 .sidebar .logout a {
