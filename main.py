@@ -1,9 +1,19 @@
 from flask import Flask, render_template
 import pandas as pd
+import folium
 
 app = Flask(__name__)
 
 df = pd.read_csv('Churn_Modelling.csv')
+
+location_coords = {
+    'France': [46.603354, 1.888334],
+    'Spain': [40.463667, -3.74922],
+    'Germany': [51.165691, 10.451526]
+}
+
+# Add coordinates to the dataframe
+df['Coordinates'] = df['Geography'].map(location_coords)
 
 # Function to format currency and round off to 1 decimal
 def format_currency(amount):
@@ -29,9 +39,22 @@ def get_exit_analysis():
 
 @app.route('/')
 def index():
-    # summary_statistics = get_summary_statistics().to_html()
-    # exit_analysis = get_exit_analysis().to_frame().to_html()
-    return render_template('index.html', active_tab='dashboard')
+    # Create a map centered in Europe
+    map_center = [45.603354, 9.888334]
+    folium_map = folium.Map(location=map_center, zoom_start=3, tiles="cartodb positron")
+
+    # Add markers to the map
+    # for idx, row in df.iterrows():
+    #     if row['Coordinates']:
+    #         folium.Marker(
+    #             location=row['Coordinates'],
+    #             popup=row['Geography'],
+    #             icon=folium.Icon(color='blue', icon='info-sign')
+    #         ).add_to(folium_map)
+
+    # Save the map to an HTML file
+    map_html = folium_map._repr_html_()
+    return render_template('index.html', active_tab='dashboard', map_html=map_html)
 
 @app.route('/statistics')
 def statistics():

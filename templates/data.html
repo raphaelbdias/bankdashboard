@@ -3,8 +3,9 @@
 {% block title %}Data Viewer{% endblock %}
 
 {% block content %}
+
+
 <div class="table-container">
-    <h2>Customer Data</h2>
     <table class="customer-table">
         <thead>
             <tr>
@@ -15,9 +16,9 @@
                 <th>Age</th>
                 <th>Tenure</th>
                 <th>Balance</th>
-                <th>Product count</th>
-                <th>Has Credit Card</th>
-                <th>Is Active Member</th>
+                <th>Products</th>
+                <th>Credit Card</th>
+                <th>Active Member</th>
                 <th>Estimated Salary</th>
                 <th>Exited</th>
             </tr>
@@ -26,13 +27,13 @@
             {% for customer in customers %}
             <tr>
                 <td>{{ customer.CustomerId }}</td>
-                <td style="color:   {% if 300 <= customer['CreditScore'] <= 579 %} red
+                <td style="color:   {% if 300 <= customer['CreditScore'] <= 579 %} #da0037
                                     {% elif 580 <= customer['CreditScore'] <= 669 %} orange
-                                    {% elif 670 <= customer['CreditScore'] <= 799 %} green
-                                    {% elif 800 <= customer['CreditScore'] <= 850 %} blue
+                                    {% elif 670 <= customer['CreditScore'] <= 799 %} #4ecca3
+                                    {% elif 800 <= customer['CreditScore'] <= 850 %} green
                                     {% else %} black
                                     {% endif %};"
-                >{{ customer['CreditScore'] }}</td>
+                >{{ customer.CreditScore }}</td>
                 <td>{{ customer.Geography }}</td>
                 <td>{{ customer.Gender }}</td>
                 <td>{{ customer.Age }}</td>

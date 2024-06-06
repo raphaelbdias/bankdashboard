@@ -100,8 +100,12 @@ body {
 /* Table styles */
 .table-container {
     font-family: 'MavenPro', sans-serif;
-    padding: 20px;
-    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -109,16 +113,10 @@ body {
     font-size: small;
 }
 
-.table-container h2 {
-    text-align: center;
-    font-family: 'MavenPro', sans-serif;
-    margin-bottom: 20px;
-}
 
 .customer-table {
     border-collapse: collapse;
     font-family: 'MavenPro', sans-serif;
-    col
 }
 
 .customer-table thead {
@@ -129,12 +127,14 @@ body {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    border-radius: 4px;
 }
 
 .customer-table th {
     background-color: #393e46;
     color: #ffffff;
     text-transform: uppercase;
+    border-radius: 4px;
 }
 
 .customer-table tr:nth-child(even) {
@@ -171,104 +171,55 @@ th {
     text-align: center;
 }
 
-.sr-only {
-    position: absolute;
-    top: -30em;
-  }
-  
-  table.sortable td,
-  table.sortable th {
-    padding: 0.125em 0.25em;
-    width: 8em;
-  }
-  
-  table.sortable th {
-    font-weight: bold;
-    border-bottom: thin solid #888;
-    position: relative;
-  }
-  
-  table.sortable th.no-sort {
-    padding-top: 0.35em;
-  }
-  
-  table.sortable th:nth-child(5) {
-    width: 10em;
-  }
-  
-  table.sortable th button {
-    padding: 4px;
-    margin: 1px;
-    font-size: 100%;
-    font-weight: bold;
-    background: transparent;
-    border: none;
-    display: inline;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: left;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  table.sortable th button span {
-    position: absolute;
-    right: 4px;
-  }
-  
-  table.sortable th[aria-sort="descending"] span::after {
-    content: "▼";
-    color: currentcolor;
-    font-size: 100%;
-    top: 0;
-  }
-  
-  table.sortable th[aria-sort="ascending"] span::after {
-    content: "▲";
-    color: currentcolor;
-    font-size: 100%;
-    top: 0;
-  }
-  
-  table.show-unsorted-icon th:not([aria-sort]) button span::after {
-    content: "♢";
-    color: currentcolor;
-    font-size: 100%;
-    position: relative;
-    top: -3px;
-    left: -4px;
-  }
-  
-  table.sortable td.num {
-    text-align: right;
-  }
-  
-  table.sortable tbody tr:nth-child(odd) {
-    background-color: #ddd;
-  }
-  
-  /* Focus and hover styling */
-  
-  table.sortable th button:focus,
-  table.sortable th button:hover {
-    padding: 2px;
-    border: 2px solid currentcolor;
-    background-color: #e5f4ff;
-  }
-  
-  table.sortable th button:focus span,
-  table.sortable th button:hover span {
-    right: 2px;
-  }
-  
-  table.sortable th:not([aria-sort]) button:focus span::after,
-  table.sortable th:not([aria-sort]) button:hover span::after {
-    content: "▼";
-    color: currentcolor;
-    font-size: 100%;
-    top: 0;
-  }
-  
+/* Style for the filter container */
+.filter-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.filter-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.filter-group select, .filter-group input {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.filter-container button {
+  align-self: flex-end;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6c7ae0;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  height: fit-content;
+}
+
+.filter-container button:hover {
+  background-color: #5a6cc6;
+}
+
+
+/* Style for the map container */
+.map-container {
+  width: 45%;
+  margin-top: 20px;
+}
