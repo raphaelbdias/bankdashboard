@@ -171,55 +171,98 @@ th {
     text-align: center;
 }
 
-/* Style for the filter container */
-.filter-container {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 20px;
-  background-color: #f1f1f1;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
 
-.filter-group {
-  display: flex;
-  flex-direction: column;
-  margin-right: 20px;
-}
-
-.filter-group label {
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.filter-group select, .filter-group input {
-  padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.filter-container button {
-  align-self: flex-end;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #6c7ae0;
-  color: #ffffff;
-  cursor: pointer;
-  font-weight: bold;
-  height: fit-content;
-}
-
-.filter-container button:hover {
-  background-color: #5a6cc6;
-}
 
 
 /* Style for the map container */
 .map-container {
-  width: 45%;
+  width: 35%;
   margin-top: 20px;
+  padding: 1px;
+  border-radius: 4px;
+  background-color: #aaaaaa;
+  position:absolute; 
+  top:45vh;
+  
+}
+.chartBox {
+    width: 35%;
+    margin-top: 20px;
+    padding: 4px;
+    border-radius: 4px;
+    position:absolute; 
+    top:45vh;
+    left: 55vw;
+    border: 1px solid #aaa;
+}
+.chartBoxTitle {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.slicers, .kpis, .content {
+    width: 80%;
+    margin-top: 20px;
+}
+.slicers form {
+    display: flex;
+    justify-content: space-around;
+}
+.kpis {
+    display: flex;
+    justify-content: space-around;
+}
+.kpi {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: 25%;
+}
+
+
+.slicers {
+    display: flex; /* Added flex display to align items horizontally */
+    margin: 20px;
+    width: 100%;
+}
+
+.slicers form {
+    display: flex; /* Changed from 'fixed' to 'flex' to align items horizontally */
+    align-items: center;
+    gap: 15px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 65vw;
+}
+
+.slicers label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.slicers select {
+    font-family: 'MavenPro', sans-serif;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.slicers button {
+    font-family: 'MavenPro', sans-serif;
+    padding: 8px 12px;
+    border: none;
+    background-color: #4ecca3;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.slicers button:hover {
+    background-color: #4ecca2b0;
 }

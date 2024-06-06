@@ -1,10 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 import pandas as pd
 import folium
 
 app = Flask(__name__)
 
 df = pd.read_csv('Churn_Modelling.csv')
+filtereddf = df.copy()
 
 location_coords = {
     'France': [46.603354, 1.888334],
@@ -39,22 +40,43 @@ def get_exit_analysis():
 
 @app.route('/')
 def index():
+    # Get filter values from request args
+    geography = request.args.get('geography', 'All')
+    num_products = request.args.get('num_products', 'All')
+    gender = request.args.get('gender', 'All')
+    
+    filtered_df = filtereddf.copy()
+
+    # Apply filters
+    if geography != 'All':
+        filtered_df = filtered_df[filtered_df['Geography'] == geography]
+    if num_products != 'All':
+        filtered_df = filtered_df[filtered_df['NumOfProducts'] == int(num_products)]
+    if gender != 'All':
+        filtered_df = filtered_df[filtered_df['Gender'] == gender]
+
     # Create a map centered in Europe
     map_center = [45.603354, 9.888334]
     folium_map = folium.Map(location=map_center, zoom_start=3, tiles="cartodb positron")
-
-    # Add markers to the map
-    # for idx, row in df.iterrows():
-    #     if row['Coordinates']:
-    #         folium.Marker(
-    #             location=row['Coordinates'],
-    #             popup=row['Geography'],
-    #             icon=folium.Icon(color='blue', icon='info-sign')
-    #         ).add_to(folium_map)
-
-    # Save the map to an HTML file
     map_html = folium_map._repr_html_()
-    return render_template('index.html', active_tab='dashboard', map_html=map_html)
+
+    # Prepare data for Chart.js
+    credit_scores = filtered_df['CreditScore'].tolist()
+    active_members = len(filtered_df[filtered_df['IsActiveMember'] == 1])
+    exited_customers = len(filtered_df[filtered_df['Exited'] == 1])
+    total_customers = len(filtereddf) - active_members
+
+
+    return render_template('index.html', 
+                            active_tab='dashboard', 
+                            map_html=map_html,
+                            credit_scores=credit_scores,
+                            active_members=active_members,
+                            exited_customers=exited_customers,
+                            geography=geography,
+                            num_products=num_products,
+                            total_customers=total_customers,
+                            gender=gender)
 
 @app.route('/statistics')
 def statistics():
