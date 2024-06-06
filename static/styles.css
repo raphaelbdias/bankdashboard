@@ -96,3 +96,179 @@ body {
     flex-grow: 1;
     overflow-y: auto;
 }
+
+/* Table styles */
+.table-container {
+    font-family: 'MavenPro', sans-serif;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    font-size: small;
+}
+
+.table-container h2 {
+    text-align: center;
+    font-family: 'MavenPro', sans-serif;
+    margin-bottom: 20px;
+}
+
+.customer-table {
+    border-collapse: collapse;
+    font-family: 'MavenPro', sans-serif;
+    col
+}
+
+.customer-table thead {
+    background-color: #dde9ff;
+}
+
+.customer-table th, .customer-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.customer-table th {
+    background-color: #393e46;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.customer-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.customer-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+.customer-table td {
+    color: #333;
+}
+th {
+    cursor: pointer;
+}
+/* Add vertical borders */
+.customer-table th:not(:last-child),
+.customer-table td:not(:last-child) {
+    border-right: 1px solid #ddd;
+}
+/* Specific styles for table data */
+.customer-table td:nth-child(1), /* Row Number */
+.customer-table td:nth-child(2), /* Customer ID */
+.customer-table td:nth-child(4), /* Credit Score */
+.customer-table td:nth-child(6), /* Gender */
+.customer-table td:nth-child(7), /* Age */
+.customer-table td:nth-child(8), /* Tenure */
+.customer-table td:nth-child(10), /* Num Of Products */
+.customer-table td:nth-child(11), /* Has Credit Card */
+.customer-table td:nth-child(12), /* Is Active Member */
+.customer-table td:nth-child(13), /* Estimated Salary */
+.customer-table td:nth-child(14) /* Exited */ {
+    text-align: center;
+}
+
+.sr-only {
+    position: absolute;
+    top: -30em;
+  }
+  
+  table.sortable td,
+  table.sortable th {
+    padding: 0.125em 0.25em;
+    width: 8em;
+  }
+  
+  table.sortable th {
+    font-weight: bold;
+    border-bottom: thin solid #888;
+    position: relative;
+  }
+  
+  table.sortable th.no-sort {
+    padding-top: 0.35em;
+  }
+  
+  table.sortable th:nth-child(5) {
+    width: 10em;
+  }
+  
+  table.sortable th button {
+    padding: 4px;
+    margin: 1px;
+    font-size: 100%;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    display: inline;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  table.sortable th button span {
+    position: absolute;
+    right: 4px;
+  }
+  
+  table.sortable th[aria-sort="descending"] span::after {
+    content: "▼";
+    color: currentcolor;
+    font-size: 100%;
+    top: 0;
+  }
+  
+  table.sortable th[aria-sort="ascending"] span::after {
+    content: "▲";
+    color: currentcolor;
+    font-size: 100%;
+    top: 0;
+  }
+  
+  table.show-unsorted-icon th:not([aria-sort]) button span::after {
+    content: "♢";
+    color: currentcolor;
+    font-size: 100%;
+    position: relative;
+    top: -3px;
+    left: -4px;
+  }
+  
+  table.sortable td.num {
+    text-align: right;
+  }
+  
+  table.sortable tbody tr:nth-child(odd) {
+    background-color: #ddd;
+  }
+  
+  /* Focus and hover styling */
+  
+  table.sortable th button:focus,
+  table.sortable th button:hover {
+    padding: 2px;
+    border: 2px solid currentcolor;
+    background-color: #e5f4ff;
+  }
+  
+  table.sortable th button:focus span,
+  table.sortable th button:hover span {
+    right: 2px;
+  }
+  
+  table.sortable th:not([aria-sort]) button:focus span::after,
+  table.sortable th:not([aria-sort]) button:hover span::after {
+    content: "▼";
+    color: currentcolor;
+    font-size: 100%;
+    top: 0;
+  }
+  
