@@ -109,10 +109,17 @@ body {
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
+    width: 100%;
     font-size: small;
 }
+*::-webkit-scrollbar {
+    display: none;
+}
 
+/* Hide scrollbar for all elements in Firefox */
+* {
+    scrollbar-width: none; /* For Firefox */
+}
 
 .customer-table {
     border-collapse: collapse;
@@ -265,4 +272,30 @@ th {
 
 .slicers button:hover {
     background-color: #4ecca2b0;
+}
+
+
+/* Selector */
+
+.form-input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 95%;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 2px solid transparent;
+}
+
+.form-input:hover { /* Styles the input when hovered */ }
+
+/* Property and Value Example */
+.error::before {
+  content: "Error!"; /* Error message before error elements */
+  font-weight: bold;
+  display: block;
+  color: red;
+  margin-left: 10px;
 }

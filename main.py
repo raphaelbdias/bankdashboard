@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
 import folium
+import pickle
+import numpy as np
+from sklearn.ensemble import GradientBoostingClassifier
 
 app = Flask(__name__)
 
@@ -15,6 +18,10 @@ location_coords = {
 
 # Add coordinates to the dataframe
 df['Coordinates'] = df['Geography'].map(location_coords)
+
+# Load the model
+with open('hclf_churn_model.pkl', 'rb') as model_file:
+    model = pickle.load(model_file)
 
 # Function to format currency and round off to 1 decimal
 def format_currency(amount):
@@ -78,10 +85,29 @@ def index():
                             total_customers=total_customers,
                             gender=gender)
 
-@app.route('/statistics')
+@app.route('/statistics', methods=['GET', 'POST'])
 def statistics():
+    prediction = None
+    pred = ''
+    if request.method == 'POST':
+        # Get data from form
+        age = float(request.form['age'])
+        is_active_member = float(request.form['is_active_member'])
+        
+        # Convert to numpy array and reshape for prediction
+        features = np.array([age, is_active_member]).reshape(1, -1)
+        
+        # Make prediction
+        prediction = model.predict(features)
+        prediction = int(model.predict(features)[0])
+
+        if prediction == 0:
+            pred = 'Not going to Churn'
+        else:
+            pred = 'Going to churn'
+        
     # Replace with your statistics logic
-    return render_template('statistics.html', active_tab='statistics')
+    return render_template('statistics.html', active_tab='statistics', preds=pred)
 
 @app.route('/analysis')
 def analysis():

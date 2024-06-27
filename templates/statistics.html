@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Statistics{% endblock %}
+
+{% block content %}
+
+<h1>Enter age and is_active_member to get prediction:</h1>
+<div class="form-input" method="POST">
+    Age: <input type="number" name="age"><br>
+    Is Active Member (0/1): <input type="number" 
+name="is_active_member"><br><br>
+    <input type="submit" value="Submit">
+</div>
+
+{% if preds == '' %}
+
+        <p> </p>
+
+{% else %}
+
+    <p> {{ preds }} </p>
+
+{% endif %}
+
+{% endblock %}
